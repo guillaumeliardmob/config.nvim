@@ -427,14 +427,11 @@ require('lazy').setup({
         main = 'cmp',
         lazy = true,
         opts = function()
-          print 'Configuring nvim-cmp'
           local cmp = require 'cmp'
           return {
             snippet = {
               -- REQUIRED - you must specify a snippet engine
               expand = function(args)
-                print 'Suggestion expanded'
-                print(vim.inspect.args.body)
                 require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
               end,
             },
@@ -770,7 +767,6 @@ require('lazy').setup({
       auto_integrations = true,
     },
     config = function(plugin)
-      print(vim.inspect(plugin))
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
